@@ -159,22 +159,22 @@ export class AbstractWelcomePage<P extends IProps> extends Component<P, IState> 
      * @returns {void}
      */
     _animateRoomNameChanging(word: string) {
-        let animateTimeoutId;
-        const roomPlaceholder = this.state.roomPlaceholder + word.substr(0, 1);
+        // let animateTimeoutId;
+        // const roomPlaceholder = this.state.roomPlaceholder + word.substr(0, 1);
 
-        if (word.length > 1) {
-            animateTimeoutId
-                = window.setTimeout(
-                    () => {
-                        this._animateRoomNameChanging(
-                            word.substring(1, word.length));
-                    },
-                    70);
-        }
-        this.setState({
-            animateTimeoutId,
-            roomPlaceholder
-        });
+        // if (word.length > 1) {
+        //     animateTimeoutId
+        //         = window.setTimeout(
+        //             () => {
+        //                 this._animateRoomNameChanging(
+        //                     word.substring(1, word.length));
+        //             },
+        //             70);
+        // }
+        // this.setState({
+        //     animateTimeoutId,
+        //     roomPlaceholder
+        // });
     }
 
     /**

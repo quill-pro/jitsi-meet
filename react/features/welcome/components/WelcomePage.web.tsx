@@ -203,24 +203,6 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                 <div className = 'header'>
                     <div className = 'header-image' />
                     <div className = 'header-container'>
-                        <div className = 'header-watermark-container'>
-                            <div className = 'welcome-watermark'>
-                                <Watermarks
-                                    defaultJitsiLogoURL = { DEFAULT_WELCOME_PAGE_LOGO_URL }
-                                    noMargins = { true } />
-                            </div>
-                        </div>
-                        <div className = 'welcome-page-settings'>
-                            <SettingsButton
-                                defaultTab = { SETTINGS_TABS.CALENDAR }
-                                isDisplayedOnWelcomePage = { true } />
-                            {showAdditionalToolbarContent
-                                ? <div
-                                    className = 'settings-toolbar-content'
-                                    ref = { this._setAdditionalToolbarContentRef } />
-                                : null
-                            }
-                        </div>
                         <h1 className = 'header-text-title'>
                             {t('welcomepage.headerTitle')}
                         </h1>
@@ -239,7 +221,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                                             id = 'enter_room_field'
                                             onChange = { this._onRoomChange }
                                             pattern = { ROOM_NAME_VALIDATE_PATTERN_STR }
-                                            placeholder = { this.state.roomPlaceholder }
+                                            placeholder = "Nom de la réunion"
                                             ref = { this._setRoomInputRef }
                                             type = 'text'
                                             value = { this.state.room } />
@@ -287,7 +269,7 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
                         </div>
                         {showAdditionalCard
                             ? <div
-                                className = 'welcome-card welcome-card--dark'
+                                className = 'welcome-card welcome-card--blue'
                                 ref = { this._setAdditionalCardRef } />
                             : null}
                     </div>
@@ -376,40 +358,6 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
         const { fDroidUrl, downloadLink: androidDownloadLink } = android;
 
         return (<footer className = 'welcome-footer'>
-            <div className = 'welcome-footer-centered'>
-                <div className = 'welcome-footer-padded'>
-                    <div className = 'welcome-footer-row-block welcome-footer--row-1'>
-                        <div className = 'welcome-footer-row-1-text'>{t('welcomepage.jitsiOnMobile')}</div>
-                        <a
-                            className = 'welcome-badge'
-                            href = { iosDownloadLink }
-                            rel = 'noopener noreferrer'
-                            target = '_blank'>
-                            <img
-                                alt = { t('welcomepage.mobileDownLoadLinkIos') }
-                                src = './images/app-store-badge.png' />
-                        </a>
-                        <a
-                            className = 'welcome-badge'
-                            href = { androidDownloadLink }
-                            rel = 'noopener noreferrer'
-                            target = '_blank'>
-                            <img
-                                alt = { t('welcomepage.mobileDownLoadLinkAndroid') }
-                                src = './images/google-play-badge.png' />
-                        </a>
-                        <a
-                            className = 'welcome-badge'
-                            href = { fDroidUrl }
-                            rel = 'noopener noreferrer'
-                            target = '_blank'>
-                            <img
-                                alt = { t('welcomepage.mobileDownLoadLinkFDroid') }
-                                src = './images/f-droid-badge.png' />
-                        </a>
-                    </div>
-                </div>
-            </div>
         </footer>);
     }
 
